@@ -20,6 +20,8 @@ class DBPost {
   execSetStorageSync(data){
     wx.setStorageSync(this.storageKeyName, data)
 
+
+    
   }
 }
 
