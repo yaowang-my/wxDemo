@@ -3,5 +3,8 @@ text{
   font-size: 24rpx;
   font-family: Microsoft YaHei;
   color: #666;
-  margin: 0 0 12rpx 10rpx;
+
+}
+.avatar{
+  margin-left: 20rpx;
 }

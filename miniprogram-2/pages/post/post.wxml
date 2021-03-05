@@ -20,6 +20,18 @@
     问题，可以使用扩展运算符,将其解析，在post-item-tpl.wxml中直接写属性
     -->
     <!-- <template is="postItemTpl" data="{{item}}"></template> -->
-    <template is="postItemTpl" data="{{...item}}"></template>
+    <!-- 事件不能注册在template block 上，他们只是占位符 -->
+    <view catchtap="onTapToDetail" data-post-id="{{item.postId}}">
+    <template is="postItemTpl" data="{{...item}}"
+    ></template>
+    <!-- 自定义组件
+      1.必须以data-开头
+      2.多个单词用 "-" 链接
+      3.在js中获取多个单词转为驼峰 
+      例子：
+        data-a      a
+        data-aa-bb   aBb
+     -->
+  </view>
   </block>
 </view>
