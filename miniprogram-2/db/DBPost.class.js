@@ -19,9 +19,6 @@ class DBPost {
   //本地缓存，保存，更新
   execSetStorageSync(data){
     wx.setStorageSync(this.storageKeyName, data)
-
-
-    
   }
 }
 
