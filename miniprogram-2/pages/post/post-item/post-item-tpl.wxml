@@ -1,0 +1,24 @@
+<template name="postItemTpl">
+  <view class="post-container">
+  <view class="post-author-date">
+    <image src="{{avatar}}"></image>
+    <text>{{date}}</text>
+  </view>
+  <text class="post-title">
+   {{title}}
+  </text>
+  <image class="post-image" src="{{postImg}}"
+  mode="scaleToFill"></image>
+  <text>{{content[0]}}</text>
+  <view class="post-like">
+    <image src="/images/icon/dianzan.png"></image>
+    <text>{{dianzanNum}}</text>
+    <image src="/images/icon/shoucang.png"></image>
+    <text>{{shoucangNum}}</text>
+    <image src="/images/icon/pinglun.png"></image>
+    <text>{{pinglunNum}}</text>
+  </view>
+ 
+    
+  </view>
+</template>

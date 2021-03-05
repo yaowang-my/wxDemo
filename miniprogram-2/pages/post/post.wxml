@@ -1,0 +1,25 @@
+<!--pages/post/post.wxml-->
+<import src="post-item/post-item-tpl.wxml" />
+
+<view>
+  <swiper indicator-dots="true" autoplay="true" interval="5000">
+    <swiper-item>
+      <image src="/images/post/avatar-2.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/avatar-3.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/avatar-4.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="index">
+    <!-- 注意其中得template is指向得是模板名字，data指向得是数据
+    有一点，在post-item-tpl.wxml中，{{}}中有item变量恰好和这里item
+    一致，如果这里改名，则要同步post-item-tpl.wxml中得item,为了避免这个
+    问题，可以使用扩展运算符,将其解析，在post-item-tpl.wxml中直接写属性
+    -->
+    <!-- <template is="postItemTpl" data="{{item}}"></template> -->
+    <template is="postItemTpl" data="{{...item}}"></template>
+  </block>
+</view>

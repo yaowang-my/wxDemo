@@ -1,0 +1,10 @@
+
+<view class="container">
+  <image class="avatar" src="/images/avatar/1.jpg" ></image>
+  <text class="yxc">"welcome,yxc"</text>
+  <view class="journer-container" catchtap="onTapJump">
+    <text class="journer">
+      开启小程序之旅1
+    </text>
+  </view>
+</view>
