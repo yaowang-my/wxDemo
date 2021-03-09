@@ -19,8 +19,8 @@
           "scene": null
         },
         {
-          "name": "pages/post/post-detail/post-detail",
-          "pathName": "pages/post/post-detail/post-detail",
+          "name": "pages/post/post",
+          "pathName": "pages/post/post",
           "query": "id=2",
           "scene": null
         }

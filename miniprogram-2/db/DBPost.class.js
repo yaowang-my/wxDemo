@@ -39,6 +39,57 @@ class DBPost {
 
     
   }
+  //收藏文章
+  collect(id){
+    return this.updatePostData('collect',id);
+  }
+  //更新本地得收藏，点赞，评论，阅读量
+  updatePostData(option,id){
+    
+    // var itemData = this.getPostItemById(id)
+    // console.log('itemData',itemData)
+    var postData = this.getPostItemById(id);
+    
+    
+    var allPostData = this.getAllPostData();
+    switch(option){
+      case 'collect':
+        //处理收藏
+        if(!postData.collectStatus){
+          //未收藏
+          postData.collectionNum++;
+          postData.collectionStatus = true;
+        }else{
+          //收藏过
+          postData.collectionNum--;
+          postData.collectionStatus = false;
+        }
+        break;
+        case 'up':
+          if(!postData.upStatus){
+            postData.upNum ++;
+            postData.upStatus = true
+          }else{
+            postData.upNum --;
+            postData.upStatus = false
+          }
+          break;
+        
+    }
+    var index = allPostData.findIndex((x)=>x.postId == id)
+    allPostData[index] = postData
+    this.execSetStorageSync(allPostData)
+    return postData;
+  }
+  
+
+  //点赞或者取消点赞
+  up(id){
+     
+    var data = this.updatePostData('up',id);
+ 
+    return data;
+  }
 }
 
 export default DBPost

@@ -11,7 +11,12 @@ var postList = [
     pinglunNum:'222',
     dateTime:'2021-3-5',
     detail:'风景1得detail',
-    authorName:'貂蝉'
+    authorName:'貂蝉',
+    upNum:10,
+    commentNum:20,
+    collectionNum:30,
+    collectionStatus:true,
+    upStatus:true
   },
   {
     date:'Jan 28 2021',
@@ -25,7 +30,12 @@ var postList = [
     pinglunNum:'32',
     dateTime:'2021-3-6',
     detail:'风景2得detail',
-    authorName:'雷欧娜'
+    authorName:'雷欧娜',
+    upNum:20,
+    commentNum:30,
+    collectionNum:40,
+    collectionStatus:true,
+    upStatus:false
   },
   {
     date:'Jan 28 2021',
@@ -39,7 +49,12 @@ var postList = [
     pinglunNum:'222',
     dateTime:'2021-3-7',
     detail:'风景3得detail',
-    authorName:'杜甫'
+    authorName:'杜甫',
+    upNum:40,
+    commentNum:50,
+    collectionNum:60,
+    collectionStatus:false,
+    upStatus:false
   },
   {
     date:'Jan 28 2021',
@@ -53,7 +68,12 @@ var postList = [
     pinglunNum:'30',
     dateTime:'2021-3-8',
     detail:'风景4得detail',
-    authorName:'李白'
+    authorName:'李白',
+    upNum:60,
+    commentNum:50,
+    collectionNum:40,
+    collectionStatus:false,
+    upStatus:false
   }
 ]
 //向外部暴漏
