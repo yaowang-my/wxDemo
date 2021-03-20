@@ -92,5 +92,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //轮播图点击事件
+  onSwiperTap(event){
+    var postId = event.target.dataset.postId;
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id='+ postId,//221
+    })
   }
+  
 })

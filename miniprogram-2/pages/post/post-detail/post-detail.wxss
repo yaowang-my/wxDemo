@@ -81,3 +81,14 @@
 .comment image{
   transform:scale(.85)
 }
+.music{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  /* left: 50%;
+  margin-left: -51rpx;
+  top: 180rpx; */
+  right: 0;
+  top: 0;
+  opacity: 0.9;
+}

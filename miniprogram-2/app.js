@@ -1,7 +1,7 @@
 // app.js
 
 App({
-  onLaunch() {
+  onLaunch() {  
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -15,6 +15,7 @@ App({
       wx.clearStorageSync();//清除缓存
       wx.setStorageSync('postList', dataObj.postList)
     }
+
     //异步设置缓存
     // wx.setStorage({
     //   data: dataObj.postList,
@@ -48,6 +49,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    g_isPlayingMusic:false,//全局控制音乐播放图标的状态
+    g_currentMusicPostId:null,//记录的是播放哪一首歌
   }
 })

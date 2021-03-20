@@ -5,6 +5,3 @@ text{
   color: #666;
 
 }
-.avatar{
-  margin-left: 20rpx;
-}

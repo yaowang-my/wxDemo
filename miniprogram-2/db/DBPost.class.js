@@ -1,3 +1,4 @@
+var util = require('../util/util.js')
 class DBPost {
   constructor(
     storageKeyName,
@@ -44,18 +45,19 @@ class DBPost {
     return this.updatePostData('collect',id);
   }
   //更新本地得收藏，点赞，评论，阅读量
-  updatePostData(option,id){
+  updatePostData(option,id,data){
     
     // var itemData = this.getPostItemById(id)
-    // console.log('itemData',itemData)
+   
     var postData = this.getPostItemById(id);
     
     
     var allPostData = this.getAllPostData();
     switch(option){
       case 'collect':
+      
         //处理收藏
-        if(!postData.collectStatus){
+        if(!postData.collectionStatus){
           //未收藏
           postData.collectionNum++;
           postData.collectionStatus = true;
@@ -74,11 +76,22 @@ class DBPost {
             postData.upStatus = false
           }
           break;
+        case 'comment':
+          postData.comments.push(data)
+          postData.commentNum ++
+          break;
+        case 'reading':
+          postData.readingNum ++ ;
+          break;
+
+
+
         
     }
     var index = allPostData.findIndex((x)=>x.postId == id)
     allPostData[index] = postData
     this.execSetStorageSync(allPostData)
+
     return postData;
   }
   
@@ -89,6 +102,45 @@ class DBPost {
     var data = this.updatePostData('up',id);
  
     return data;
+  }
+
+  //获取评论信息
+  getCommentData(id){
+    var data = this.getPostItemById(id);
+    
+    //按照时间降序排序
+    data.comments.sort(this.compareWithTime);
+    var len = data.comments.length,
+      comment;
+    for(var i = 0 ; i <len; i++){
+      //将comment中得时间戳转换成可阅读格式
+      comment = data.comments[i]
+      comment.create_time = util.getDiffTime(comment.create_time,true);
+    }
+    return data.comments;
+  }
+
+  //
+  compareWithTime(value1,value2){
+    var flag= parseFloat(value1.create_time) - parseFloat(value2.create_time);
+    if(flag<0){
+      return 1;
+
+    }else if(flag>0){
+      return -1;
+    }else{
+      return 0;
+    }
+  }
+
+  // 发表评论
+  newComment(data,id){
+    this.updatePostData('comment',id,data);
+  }
+
+  //阅读量增加1
+  addReadingTimes(id){
+    this.updatePostData('reading',id)
   }
 }
 

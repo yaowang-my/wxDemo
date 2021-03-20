@@ -4,7 +4,7 @@
     "pages/welcome/welcome",
     "pages/post/post",
     "pages/post/post-detail/post-detail",
-    "pages/yxc/yxc"
+    "pages/post/post-comment/post-comment"
     
   ],
   "window":{
